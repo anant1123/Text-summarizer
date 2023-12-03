@@ -3,6 +3,7 @@ from PyPDF2 import PdfReader
 import spacy
 from goose3 import Goose
 import regex  # Import the 'regex' library instead of 're'
+import pickle
 
 # Load the spaCy model with 'sentencizer'
 with open("en_core_web_lg.pkl", "rb") as f:
