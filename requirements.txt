@@ -3,4 +3,4 @@ spacy
 goose3
 regex
 PyPDF2
-pickle
+joblib
