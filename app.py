@@ -1,10 +1,8 @@
 import streamlit as st
-# from bs4 import BeautifulSoup
-# import requests
 from PyPDF2 import PdfReader
 import spacy
-import re
 from goose3 import Goose
+import regex  # Import the 'regex' library instead of 're'
 
 # Load the spaCy model with 'sentencizer'
 nlp = spacy.load("en_core_web_lg", exclude=['parser', 'ner'])
@@ -58,7 +56,7 @@ def main():
     if st.button("Extract and Summarize"):
         sentences = preprocess_text(text)
         summary = extractive_summarization(sentences)
-        cleaned_summary = re.sub(r'\[\d+\]', '', summary)
+        cleaned_summary = regex.sub(r'\[\d+\]', '', summary)  # Using 'regex' instead of 're'
 
         original_text_length = len(text)
         summarized_text_length = len(cleaned_summary)
@@ -70,4 +68,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
