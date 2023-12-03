@@ -1,0 +1,4 @@
+goose3
+PyPDF2
+spacy
+re
