@@ -3,11 +3,10 @@ from PyPDF2 import PdfReader
 import spacy
 from goose3 import Goose
 import regex  # Import the 'regex' library instead of 're'
-import pickle
+import joblib
 
 # Load the spaCy model with 'sentencizer'
-with open("en_core_web_lg.pkl", "rb") as f:
-    nlp = pickle.load(f)
+nlp = joblib.load("en_core_web_lg.joblib")
 
 sentencizer = nlp.add_pipe("sentencizer")
 def scrape_text_from_url(url):
