@@ -5,9 +5,10 @@ from goose3 import Goose
 import regex  # Import the 'regex' library instead of 're'
 
 # Load the spaCy model with 'sentencizer'
-nlp = spacy.load("en_core_web_lg", exclude=['parser', 'ner'])
-sentencizer = nlp.add_pipe("sentencizer")
+with open("en_core_web_lg.pkl", "rb") as f:
+    nlp = pickle.load(f)
 
+sentencizer = nlp.add_pipe("sentencizer")
 def scrape_text_from_url(url):
     try:
         g = Goose()
